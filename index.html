@@ -2,66 +2,262 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Shoe Shop</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta name="viewport" content="height=device-height,width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Hello Shoe Shop</title>
     <link rel="stylesheet" href="assets/style/loginPage.css">
+    <link rel="stylesheet" href="assets/style/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-<div class="container" id="container">
-    <div class="form-container sign-up-container">
-        <form action="#">
-            <h1>Create Account</h1>
-            <div class="social-container">
-                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-            <span>or use your email for registration</span>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <button>Sign Up</button>
-        </form>
-    </div>
-    <div class="form-container sign-in-container">
-        <form action="#">
-            <h1>Sign in</h1>
-            <div class="social-container">
-                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-            <span>or use your account</span>
-            <input id="email" type="email" placeholder="Email" />
-            <input id="password" type="password" placeholder="Password" />
-            <a href="#">Forgot your password?</a>
-            <button id="signInBtn">Sign In</button>
-        </form>
-    </div>
-    <div class="overlay-container">
-        <div class="overlay">
-            <div class="overlay-panel overlay-left">
-                <h1>Welcome Back!</h1>
-                <p>To keep connected with us please login with your personal info</p>
-                <button class="ghost" id="signIn">Sign In</button>
-            </div>
-            <div class="overlay-panel overlay-right">
-                <h1>Hello, Friend!</h1>
-                <p>Enter your personal details and start journey with us</p>
-                <button class="ghost" id="signUp">Sign Up</button>
+<main id="loginPage">
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <h1>Create Account</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email for registration</span>
+                <input type="text" placeholder="Name" />
+                <input type="email" placeholder="Email" />
+                <input type="password" placeholder="Password" />
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form id="login-form" action="#">
+                <h1>Sign in</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your account</span>
+                <input id="email" type="email" placeholder="Email" />
+                <input id="password" type="password" placeholder="Password" />
+                <a href="#">Forgot your password?</a>
+                <button id="signInBtn" type="submit">Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, User!</h1>
+                    <p>Enter your personal details and start new account</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</main>
+
+<section id="dashboard">
+    <main>
+        <nav class="main-menu">
+            <h1>Hello Shoe Shop</h1>
+            <img class="logo" src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/4cfdcb5a-0137-4457-8be1-6e7bd1f29ebb" alt="" />
+            <ul>
+                <li class="nav-item active">
+                    <b></b>
+                    <b></b>
+                    <a href="#">
+                        <i class="fa fa-house nav-icon"></i>
+                        <span class="nav-text">Home</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <b></b>
+                    <b></b>
+                    <a href="#">
+                        <i class="fa fa-users nav-icon"></i>
+                        <span class="nav-text">Customer</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <b></b>
+                    <b></b>
+                    <a href="#">
+                        <i class="fa fa-cart-shopping nav-icon"></i>
+                        <span class="nav-text">Orders</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <b></b>
+                    <b></b>
+                    <a href="#">
+                        <i class="fa fa-box-open nav-icon"></i>
+                        <span class="nav-text">Inventory</span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <b></b>
+                    <b></b>
+                    <a href="#">
+                        <i class="fa fa-gear nav-icon"></i>
+                        <span class="nav-text">Setting</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <section class="content">
+            <div class="left-content">
+                <div class="activities">
+                    <h1>User Dashboard</h1>
+                    <h1 id="userh1">You can see here sumaries about this application</h1>
+                    <img name="slide" class="image">
+                    <div class="dashboard-main-div">
+
+                        <div class="overlay1">
+                            <h4>Future Trends in Shoe Management Technology :
+                                Predictions and Innovations</h4>
+                            <p>"Our shoe management system revolutionizes the way you organize <br>and access your footwear
+                                collection. With our intuitive interface, you<br> can easily catalog your shoes, track their
+                                condition, and even schedule maintenance or cleaning reminders. Say goodbye to cluttered
+                                closets and endless searches for the right pair – our system ensures that your shoes are
+                                always neatly organized and readily available whenever you need them."</p>
+<!--                            <img src="assests/images/front-view-attractive-female-blue-shirt-dress-holding-black-orange-shoes-blue-removebg-preview.png" >-->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="left-bottom">
+                    <div class="weekly-schedule">
+                        <!--                        <h3>Weekly S</h3>-->
+                        <div class="calendar">
+                            <div class="day-and-activity">
+                                <div class="day">
+                                    <img src="assests/images/icons8-customer-64%20(2).png">
+                                </div>
+                                <div class="activity">
+                                    <h2>Today Total Customers</h2>
+                                </div>
+                                <button class="btn">10</button>
+                            </div>
+
+                            <div class="day-and-activity">
+                                <div class="day">
+                                    <img src="assests/images/icons8-order-96.png" width="64">
+                                </div>
+                                <div class="activity">
+                                    <h2>Today Total Orders</h2>
+                                </div>
+                                <button class="btn">9</button>
+                            </div>
+
+                            <div class="day-and-activity">
+                                <div class="day">
+                                    <img src="assests/images/icons8-item-60.png" width="64">
+                                </div>
+                                <div class="activity">
+                                    <h2>Today Sold Items</h2>
+                                </div>
+                                <button class="btn">5</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="personal-bests">
+                        <div class="personal-bests-container">
+                            <div class="best-item box-one">
+                                <h5>What we hope for Daily Target<br>(orders): 20</h5>
+                                <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/242bbd8c-aaf8-4aee-a3e4-e0df62d1ab27" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-content">
+                <div class="user-info">
+                    <div class="icon-container">
+                        <i class="fa fa-bell nav-icon"></i>
+                        <i class="fa fa-message nav-icon"></i>
+                    </div>
+                    <h4>Kelsey Miller</h4>
+                    <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/40b7cce2-c289-4954-9be0-938479832a9c" alt="user" />
+                </div>
+
+                <div class="active-calories">
+                    <h1 style="align-self: flex-start">Order Summery</h1>
+                    <div class="active-calories-container">
+                        <div class="box" style="--i: 85%">
+                            <div class="circle">
+                                <h2>85<small>%</small></h2>
+                            </div>
+                        </div>
+                        <div class="calories-content">
+                            <p><span>Today:</span> 9</p>
+                            <p><span>This Week:</span> 30</p>
+                            <p><span>This Month:</span> 60</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile-personal-bests">
+                    <h1>Personal Bests</h1>
+                    <div class="personal-bests-container">
+                        <div class="best-item box-one">
+                            <p>Fastest 5K Run: 22min</p>
+                            <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/05dfc444-9ed3-44cc-96af-a9cf195f5820" alt="" />
+                        </div>
+                        <div class="best-item box-two">
+                            <p>Longest Distance Cycling: 4 miles</p>
+                            <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/9ca170e9-1252-4fa6-8677-36493540c1f2" alt="" />
+                        </div>
+                        <div class="best-item box-three">
+                            <p>Longest Roller-Skating: 2 hours</p>
+                            <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/262d1611-ed4c-4297-981c-480cf7f95714" alt="" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="friends-activity">
+                    <h1>Latest Shoe</h1>
+                    <div class="card-container">
+                        <div class="card">
+                            <div class="card-user-info">
+                                <img src="https://thumbs.dreamstime.com/b/nike-inc-american-multinational-corporation-engaged-design-development-manufacturing-worldwide-marketing-139136474.jpg" alt="" />
+                                <h2>Nike</h2>
+                            </div>
+                            <img class="card-img" src="assets/img/Screenshot from 2024-05-18 10-55-45.png" alt="" width="100"/>
+                            <p>Nike's latest shoe: Performance, style, innovation - footwear excellence redefined.!🏃‍♀🎉</p>
+                        </div>
+
+                        <div class="card card-two">
+                            <div class="card-user-info">
+                                <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/42616ef2-ba96-49c7-80ea-c3cf1e2ecc89" alt="" />
+                                <h2>Mike</h2>
+                            </div>
+                            <img class="card-img" src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/2dcc1b94-06c5-4c62-b886-53b9e433fd44" alt="" />
+                            <p>I just set a new record in cycling: 30 miles!💪</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</section>
 
 <footer>
     <p>
         Created with <i class="fa fa-heart"></i> by
-        <a target="_blank" href="https://florin-pop.com">Florin Pop</a>
-        - Read how I created this and how you can join the challenge
-        <a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
+        <a target="_blank" href="">@kash</a>
+        - Welcome to our
+        <a target="_blank" href="">Hello Shoe Shop</a>.
     </p>
 </footer>
-<script src="assets/script/loginPage.js"></script>
+<script src="assets/script/jquery.min.js"></script>
+<script src="assets/script/script.js"></script>
+<script src="assets/script/userDashboard.js"></script>
+<script type="module" src="controller/userController.js"></script>
 </body>
 </html>
