@@ -19,7 +19,7 @@ loginBtn.eq(0).on('click', function(){
             success: function(token) {
                 localStorage.setItem('token', token);
                 $('#loginPage').css('display', 'none');
-                $('#dashboard').css('display', 'block');
+                $('.dashboard-container').css('display', 'block');
             },
             error: function() {
                 alert('Login failed!');

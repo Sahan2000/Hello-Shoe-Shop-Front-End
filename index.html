@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="assets/style/loginPage.css">
     <link rel="stylesheet" href="assets/style/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="assets/style/customer.css">
 </head>
 <body>
 <main id="loginPage">
-    <div class="container" id="container">
+    <div class="login-container" id="container">
         <div class="form-container sign-up-container">
             <form action="#">
                 <h1>Create Account</h1>
@@ -46,12 +48,12 @@
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
                     <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
+                    <p class="login-desc">To keep connected with us please login with your personal info</p>
                     <button class="ghost" id="signIn">Sign In</button>
                 </div>
                 <div class="overlay-panel overlay-right">
                     <h1>Hello, User!</h1>
-                    <p>Enter your personal details and start new account</p>
+                    <p class="login-desc">Enter your personal details and start new account</p>
                     <button class="ghost" id="signUp">Sign Up</button>
                 </div>
             </div>
@@ -59,193 +61,449 @@
     </div>
 </main>
 
-<section id="dashboard">
-    <main>
-        <nav class="main-menu">
-            <h1>Hello Shoe Shop</h1>
-            <img class="logo" src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/4cfdcb5a-0137-4457-8be1-6e7bd1f29ebb" alt="" />
-            <ul>
-                <li class="nav-item active">
-                    <b></b>
-                    <b></b>
-                    <a href="#">
-                        <i class="fa fa-house nav-icon"></i>
-                        <span class="nav-text">Home</span>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <b></b>
-                    <b></b>
-                    <a href="#">
-                        <i class="fa fa-users nav-icon"></i>
-                        <span class="nav-text">Customer</span>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <b></b>
-                    <b></b>
-                    <a href="#">
-                        <i class="fa fa-cart-shopping nav-icon"></i>
-                        <span class="nav-text">Orders</span>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <b></b>
-                    <b></b>
-                    <a href="#">
-                        <i class="fa fa-box-open nav-icon"></i>
-                        <span class="nav-text">Inventory</span>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <b></b>
-                    <b></b>
-                    <a href="#">
-                        <i class="fa fa-gear nav-icon"></i>
-                        <span class="nav-text">Setting</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+<!-- =============== Navigation ================ -->
+<div class="dashboard-container">
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="logo-apple"></ion-icon>
+                    </span>
+                    <span class="title">HelloShoe Shop</span>
+                </a>
+            </li>
 
-        <section class="content">
-            <div class="left-content">
-                <div class="activities">
-                    <h1>User Dashboard</h1>
-                    <h1 id="userh1">You can see here sumaries about this application</h1>
-                    <img name="slide" class="image">
-                    <div class="dashboard-main-div">
+            <li>
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="home-outline"></ion-icon>
+                    </span>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
 
-                        <div class="overlay1">
-                            <h4>Future Trends in Shoe Management Technology :
-                                Predictions and Innovations</h4>
-                            <p>"Our shoe management system revolutionizes the way you organize <br>and access your footwear
-                                collection. With our intuitive interface, you<br> can easily catalog your shoes, track their
-                                condition, and even schedule maintenance or cleaning reminders. Say goodbye to cluttered
-                                closets and endless searches for the right pair – our system ensures that your shoes are
-                                always neatly organized and readily available whenever you need them."</p>
-<!--                            <img src="assests/images/front-view-attractive-female-blue-shirt-dress-holding-black-orange-shoes-blue-removebg-preview.png" >-->
-                        </div>
-                    </div>
+            <li>
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="people-outline"></ion-icon>
+                    </span>
+                    <span class="title">Customers</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="cube-outline"></ion-icon>
+                    </span>
+                    <span class="title">Products</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="cart-outline"></ion-icon>
+                    </span>
+                    <span class="title">Orders</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="settings-outline"></ion-icon>
+                    </span>
+                    <span class="title">Supplier</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="log-out-outline"></ion-icon>
+                    </span>
+                    <span class="title">Sign Out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ========================= Main ==================== -->
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
+
+            <div class="search">
+                <label>
+                    <input type="text" placeholder="Search here">
+                    <ion-icon name="search-outline"></ion-icon>
+                </label>
+            </div>
+
+            <div class="user">
+                <img src="" alt="">
+            </div>
+        </div>
+
+        <!-- ======================= Cards ================== -->
+        <div class="cardBox">
+            <div class="card">
+                <div>
+                    <div class="numbers">15</div>
+                    <div class="cardName">Today Total Customers</div>
                 </div>
 
-                <div class="left-bottom">
-                    <div class="weekly-schedule">
-                        <!--                        <h3>Weekly S</h3>-->
-                        <div class="calendar">
-                            <div class="day-and-activity">
-                                <div class="day">
-                                    <img src="assests/images/icons8-customer-64%20(2).png">
-                                </div>
-                                <div class="activity">
-                                    <h2>Today Total Customers</h2>
-                                </div>
-                                <button class="btn">10</button>
-                            </div>
-
-                            <div class="day-and-activity">
-                                <div class="day">
-                                    <img src="assests/images/icons8-order-96.png" width="64">
-                                </div>
-                                <div class="activity">
-                                    <h2>Today Total Orders</h2>
-                                </div>
-                                <button class="btn">9</button>
-                            </div>
-
-                            <div class="day-and-activity">
-                                <div class="day">
-                                    <img src="assests/images/icons8-item-60.png" width="64">
-                                </div>
-                                <div class="activity">
-                                    <h2>Today Sold Items</h2>
-                                </div>
-                                <button class="btn">5</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="personal-bests">
-                        <div class="personal-bests-container">
-                            <div class="best-item box-one">
-                                <h5>What we hope for Daily Target<br>(orders): 20</h5>
-                                <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/242bbd8c-aaf8-4aee-a3e4-e0df62d1ab27" alt="" />
-                            </div>
-                        </div>
-                    </div>
+                <div class="iconBx">
+                    <ion-icon name="people-outline"></ion-icon>
                 </div>
             </div>
 
-            <div class="right-content">
-                <div class="user-info">
-                    <div class="icon-container">
-                        <i class="fa fa-bell nav-icon"></i>
-                        <i class="fa fa-message nav-icon"></i>
-                    </div>
-                    <h4>Kelsey Miller</h4>
-                    <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/40b7cce2-c289-4954-9be0-938479832a9c" alt="user" />
+            <div class="card">
+                <div>
+                    <div class="numbers">80</div>
+                    <div class="cardName">Today Total Sales</div>
                 </div>
 
-                <div class="active-calories">
-                    <h1 style="align-self: flex-start">Order Summery</h1>
-                    <div class="active-calories-container">
-                        <div class="box" style="--i: 85%">
-                            <div class="circle">
-                                <h2>85<small>%</small></h2>
-                            </div>
-                        </div>
-                        <div class="calories-content">
-                            <p><span>Today:</span> 9</p>
-                            <p><span>This Week:</span> 30</p>
-                            <p><span>This Month:</span> 60</p>
-                        </div>
-                    </div>
+                <div class="iconBx">
+                    <ion-icon name="cart-outline"></ion-icon>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="numbers">$7,842</div>
+                    <div class="cardName">Daily Incomes</div>
                 </div>
 
-                <div class="mobile-personal-bests">
-                    <h1>Personal Bests</h1>
-                    <div class="personal-bests-container">
-                        <div class="best-item box-one">
-                            <p>Fastest 5K Run: 22min</p>
-                            <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/05dfc444-9ed3-44cc-96af-a9cf195f5820" alt="" />
-                        </div>
-                        <div class="best-item box-two">
-                            <p>Longest Distance Cycling: 4 miles</p>
-                            <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/9ca170e9-1252-4fa6-8677-36493540c1f2" alt="" />
-                        </div>
-                        <div class="best-item box-three">
-                            <p>Longest Roller-Skating: 2 hours</p>
-                            <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/262d1611-ed4c-4297-981c-480cf7f95714" alt="" />
-                        </div>
-                    </div>
+                <div class="iconBx">
+                    <ion-icon name="cash-outline"></ion-icon>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="numbers">282</div>
+                    <div class="cardName">Total Items</div>
                 </div>
 
-                <div class="friends-activity">
-                    <h1>Latest Shoe</h1>
-                    <div class="card-container">
-                        <div class="card">
-                            <div class="card-user-info">
-                                <img src="https://thumbs.dreamstime.com/b/nike-inc-american-multinational-corporation-engaged-design-development-manufacturing-worldwide-marketing-139136474.jpg" alt="" />
-                                <h2>Nike</h2>
-                            </div>
-                            <img class="card-img" src="assets/img/Screenshot from 2024-05-18 10-55-45.png" alt="" width="100"/>
-                            <p>Nike's latest shoe: Performance, style, innovation - footwear excellence redefined.!🏃‍♀🎉</p>
-                        </div>
+                <div class="iconBx">
+                    <ion-icon name="cube-outline"></ion-icon>
+                </div>
+            </div>
+        </div>
 
-                        <div class="card card-two">
-                            <div class="card-user-info">
-                                <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/42616ef2-ba96-49c7-80ea-c3cf1e2ecc89" alt="" />
-                                <h2>Mike</h2>
+        <!-- ================ Order Details List ================= -->
+        <div class="details">
+            <div class="recentOrders">
+                <div class="cardHeader">
+                    <h2>Recent Items</h2>
+                    <a href="#" class="btn">View All</a>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Item Code</td>
+                            <td>Description</td>
+                            <td>Payment</td>
+                            <td>Status</td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Star Refrigerator</td>
+                            <td>$1200</td>
+                            <td>Paid</td>
+                            <td><span class="status delivered">Delivered</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>Dell Laptop</td>
+                            <td>$110</td>
+                            <td>Due</td>
+                            <td><span class="status pending">Pending</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>Apple Watch</td>
+                            <td>$1200</td>
+                            <td>Paid</td>
+                            <td><span class="status return">Return</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>Addidas Shoes</td>
+                            <td>$620</td>
+                            <td>Due</td>
+                            <td><span class="status inProgress">In Progress</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>Star Refrigerator</td>
+                            <td>$1200</td>
+                            <td>Paid</td>
+                            <td><span class="status delivered">Delivered</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>Dell Laptop</td>
+                            <td>$110</td>
+                            <td>Due</td>
+                            <td><span class="status pending">Pending</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>Apple Watch</td>
+                            <td>$1200</td>
+                            <td>Paid</td>
+                            <td><span class="status return">Return</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>Addidas Shoes</td>
+                            <td>$620</td>
+                            <td>Due</td>
+                            <td><span class="status inProgress">In Progress</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ================= New Customers ================ -->
+            <div class="recentCustomers">
+                <div class="cardHeader">
+                    <h2>Recent Customers</h2>
+                </div>
+
+                <table>
+                    <tr>
+                        <td width="60px">
+                            <div class="imgBx"><img src="" alt=""></div>
+                        </td>
+                        <td>
+                            <h4>David <br> <span>Italy</span></h4>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width="60px">
+                            <div class="imgBx"><img src="" alt=""></div>
+                        </td>
+                        <td>
+                            <h4>Amit <br> <span>India</span></h4>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width="60px">
+                            <div class="imgBx"><img src="" alt=""></div>
+                        </td>
+                        <td>
+                            <h4>David <br> <span>Italy</span></h4>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width="60px">
+                            <div class="imgBx"><img src="" alt=""></div>
+                        </td>
+                        <td>
+                            <h4>Amit <br> <span>India</span></h4>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width="60px">
+                            <div class="imgBx"><img src="" alt=""></div>
+                        </td>
+                        <td>
+                            <h4>David <br> <span>Italy</span></h4>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width="60px">
+                            <div class="imgBx"><img src="" alt=""></div>
+                        </td>
+                        <td>
+                            <h4>Amit <br> <span>India</span></h4>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width="60px">
+                            <div class="imgBx"><img src="" alt=""></div>
+                        </td>
+                        <td>
+                            <h4>David <br> <span>Italy</span></h4>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width="60px">
+                            <div class="imgBx"><img src="" alt=""></div>
+                        </td>
+                        <td>
+                            <h4>Amit <br><span>India</span></h4>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="customer-content" id="customer">
+        <section class="intro">
+            <div class="bg-image h-100" style="background-color: #f5f7fa;">
+                <div class="mask d-flex align-items-center h-100">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive table-scroll" style="position: relative; height: 500px;">
+                                            <table class="table table-striped mb-0">
+                                                <thead style="background-color: #002d72; text-align: center;">
+                                                <tr>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Gender</th>
+                                                    <th scope="col">Level</th>
+                                                    <th scope="col">Join Date</th>
+                                                    <th scope="col">Total Points</th>
+                                                    <th scope="col">Date of Birth</th>
+                                                    <th scope="col">Address</th>
+                                                    <th scope="col">Postal Code</th>
+                                                    <th scope="col">Contact</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Recent Purchase</th>
+                                                    <th scope="col">Update</th>
+                                                    <th scope="col">Delete</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="cust-table-body">
+                                                <!-- Dynamic data goes here -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn-success add-btn" style="width: 200px;" data-toggle="modal" data-target="#customerModal" id="custAddBtn">
+                                        Add New Customer
+                                    </button>
+
+                                    <div class="modal fade" id="customerModal" tabindex="-1" role="dialog" aria-labelledby="addCustomerModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <form id="customerForm">
+                                                        <h4 id="customerFormHeading">Add New Customer</h4>
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-6">
+                                                                <label for="customerId">Customer ID</label>
+                                                                <input type="text" class="form-control" id="customerId" placeholder="Enter Customer ID" required disabled>
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="name">Full Name</label>
+                                                                <input type="text" class="form-control" id="name" placeholder="Enter Full Name" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-6">
+                                                                <label for="gender">Gender</label>
+                                                                <select class="form-control" id="gender" required>
+                                                                    <option value="">Select Gender</option>
+                                                                    <option value="MALE">Male</option>
+                                                                    <option value="FEMALE">Female</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="level">Level</label>
+                                                                <input type="text" class="form-control" id="level" placeholder="Enter Level">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-6">
+                                                                <label for="joinDate">Join Date</label>
+                                                                <input type="date" class="form-control" id="joinDate" required>
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="totalPoint">Total Points</label>
+                                                                <input type="number" class="form-control" id="totalPoint" min="0" placeholder="Enter Total Points">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-6">
+                                                                <label for="dob">Date of Birth</label>
+                                                                <input type="date" class="form-control" id="dob" required>
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="address1">Address Line 1</label>
+                                                                <input type="text" class="form-control" id="address1" placeholder="Enter Address Line 1" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-6">
+                                                                <label for="address2">Address Line 2</label>
+                                                                <input type="text" class="form-control" id="address2" placeholder="Enter Address Line 2" required>
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="address3">Address Line 3</label>
+                                                                <input type="text" class="form-control" id="address3" placeholder="Enter Address Line 3" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-6">
+                                                                <label for="address4">Address Line 4</label>
+                                                                <input type="text" class="form-control" id="address4" placeholder="Enter Address Line 4" required>
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="postalCode">Postal Code</label>
+                                                                <input type="text" class="form-control" id="postalCode" placeholder="Enter Postal Code" pattern="\d{5}" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-6">
+                                                                <label for="contact">Contact</label>
+                                                                <input type="tel" class="form-control" id="contact" placeholder="Enter Contact" pattern="^\+?[0-9\-\\s]+$" required>
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="email">Email</label>
+                                                                <input type="email" class="form-control" id="email" placeholder="Enter Email" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-6">
+                                                                <label for="recentPurchasedDate">Recent Purchase Date</label>
+                                                                <input type="datetime-local" class="form-control" id="recentPurchasedDate" required>
+                                                            </div>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-success" id="custSaveUpdateButton">Save</button>
+                                                        <button type="button" class="btn btn-dark" id="custClear">Clear</button>
+                                                        <button hidden type="reset" class="btn btn-dark" id="custReset">Reset</button>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
-                            <img class="card-img" src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/2dcc1b94-06c5-4c62-b886-53b9e433fd44" alt="" />
-                            <p>I just set a new record in cycling: 30 miles!💪</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-    </main>
-</section>
+    </div>
+</div>
 
 <footer>
     <p>
@@ -259,5 +517,8 @@
 <script src="assets/script/script.js"></script>
 <script src="assets/script/userDashboard.js"></script>
 <script type="module" src="controller/userController.js"></script>
+<!-- ====== ionicons ======= -->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

@@ -11,21 +11,34 @@ signInButton.addEventListener('click', () => {
 });
 
 window.addEventListener('load',function (){
-    const loadingScreen = document.querySelector('#dashboard');
+    const loadingScreen = document.querySelector('.dashboard-container');
     loadingScreen.style.display = 'none';
 
     const loadingScreen1 = document.querySelector('#loginPage');
     loadingScreen1.style.display = 'flex';
 
+    const loadingScreen2 = document.querySelector('#customer');
+    loadingScreen2.style.display = 'none';
+
+    // const loadingScreen3 = document.querySelector('.main-content');
+    // loadingScreen3.style.display = 'none';
+
 });
 
-// $(document).ready(function (){
-//     $('#signInBtn').eq(0).on('click',function (){
+$(document).ready(function (){
+    $('.customerBtn').eq(0).on('click',function (){
+        event.preventDefault();
 
-//         const loadingScreen1 = document.querySelector('#loginPage');
-//         loadingScreen1.style.display = 'none';
+        const loadingScreen1 = document.querySelector('#loginPage');
+        loadingScreen1.style.display = 'none';
 
-//         const loadingScreen2 = document.querySelector('#dashboard');
-//         loadingScreen2.style.display = 'block';
-//     });
-// });
+        const loadingScreen3 = document.querySelector('#customer');
+        loadingScreen3.style.display = 'block';
+
+        const loadingScreen4 = document.querySelector('.main-content');
+        loadingScreen4.style.display = 'none';
+        
+        const loadingScreen5 = document.querySelector('.dashboard-container');
+        loadingScreen5.style.display = 'block';
+    });
+});
