@@ -18,8 +18,7 @@ loginBtn.eq(0).on('click', function(){
             data: JSON.stringify({ email: emailValue, password: passwordValue}),
             success: function(token) {
                 localStorage.setItem('token', token);
-                $('#loginPage').css('display', 'none');
-                $('.dashboard-container').css('display', 'block');
+                window.location.href = 'mainContain.html';
             },
             error: function() {
                 alert('Login failed!');

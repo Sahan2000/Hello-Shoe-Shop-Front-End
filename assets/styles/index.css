@@ -7,13 +7,17 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+body{
+    line-height: 2.5rem;
+}
+
 #loginPage {
     background: #f6f5f7;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     height: 97vh;
 }
 
@@ -45,24 +49,24 @@ a {
     margin: 15px 0;
 }
 
-button {
+.login-btn {
     border-radius: 20px;
     border: 1px solid #2a2185;
     background-color: #2a2185;
     color: #FFFFFF;
     font-size: 12px;
     font-weight: bold;
-    padding: 12px 45px;
+    padding: 10px 27px;
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: transform 80ms ease-in;
 }
 
-button:active {
+login-btn:active {
     transform: scale(0.95);
 }
 
-button:focus {
+login-btn:focus {
     outline: none;
 }
 
@@ -71,7 +75,7 @@ button.ghost {
     border-color: #FFFFFF;
 }
 
-form {
+.login-form {
     background-color: #FFFFFF;
     display: flex;
     align-items: center;
@@ -82,7 +86,7 @@ form {
     text-align: center;
 }
 
-input {
+.login-input {
     background-color: #eee;
     border: none;
     padding: 12px 15px;
@@ -102,7 +106,7 @@ input {
     min-height: 480px;
 }
 
-.form-container {
+.login-form-container {
     position: absolute;
     top: 0;
     height: 100%;
@@ -115,7 +119,7 @@ input {
     z-index: 2;
 }
 
-.container.right-panel-active .sign-in-container {
+.login-container.right-panel-active .sign-in-container {
     transform: translateX(100%);
 }
 
@@ -126,7 +130,7 @@ input {
     z-index: 1;
 }
 
-.container.right-panel-active .sign-up-container {
+.login-container.right-panel-active .sign-up-container {
     transform: translateX(100%);
     opacity: 1;
     z-index: 5;
@@ -156,7 +160,7 @@ input {
     z-index: 100;
 }
 
-.container.right-panel-active .overlay-container{
+.login-container.right-panel-active .overlay-container{
     transform: translateX(-100%);
 }
 
@@ -176,7 +180,7 @@ input {
     transition: transform 0.6s ease-in-out;
 }
 
-.container.right-panel-active .overlay {
+.login-container.right-panel-active .overlay {
     transform: translateX(50%);
 }
 
@@ -199,7 +203,7 @@ input {
     transform: translateX(-20%);
 }
 
-.container.right-panel-active .overlay-left {
+.login-container.right-panel-active .overlay-left {
     transform: translateX(0);
 }
 
@@ -208,7 +212,7 @@ input {
     transform: translateX(0);
 }
 
-.container.right-panel-active .overlay-right {
+.login-container.right-panel-active .overlay-right {
     transform: translateX(20%);
 }
 
