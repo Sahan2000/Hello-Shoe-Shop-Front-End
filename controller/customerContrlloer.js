@@ -16,12 +16,14 @@ $(document).ready(function () {
     let postalCode = $('#customer-postalCode');
     let contact = $('#customer-contact');
     let email = $('#customer-email');
-    let recentPurchaseDate = $('#customer-recent-purchased-date');
+    let recentPurchaseDate = $('#recentPurchasedDate');
 
     let addCustomer = $('#custAddBtn');
 
     let saveBtn = $('#customer-save-update-btn');
     let custClear = $('#custClear');
+
+    let tableBody =  $('#cust-table-body');
 
     let customerApi = new CustomerApi();
 
@@ -32,7 +34,6 @@ $(document).ready(function () {
         let formattedDate = localDate.toISOString().split('T')[0];
         joinDate.val(formattedDate);
         totalPoints.val(0);
-        recentPurchaseDate.val(formattedDate);
     });
 
     function generateCustomerId() {
@@ -104,6 +105,18 @@ $(document).ready(function () {
             }).catch((error) => {
                 showError('Save Unsuccessful', error);
             });
+        }else{
+            customerApi.updateCustomer(customer).then((responseText) => {
+                Swal.fire(
+                    responseText,
+                    'Successful',
+                   'success'
+                )
+                custClear.click();
+                populateCustomerTable();
+            }).catch((error) => {
+                showError('Update Unsuccessful', error);
+            });
         }
     });
 
@@ -129,9 +142,7 @@ $(document).ready(function () {
                         <td>${(customer.recentPurchasedDate == null) ? 'No Purchased Done yet' : customer.recentPurchasedDate}</td>
                         <td>
                             <button class="updateBtn btn btn-warning btn-sm" data-toggle="modal" data-target="#customerModal"
-                                data-customer-id="${customer.customerId}">
-                                Edit
-                            </button>
+                                data-customer-id="${customer.customerId}">Edit</button>
                         </td>
                         <td>
                             <button class="deleteBtn btn btn-danger btn-sm" data-customer-id="${customer.customerId}">
@@ -147,4 +158,45 @@ $(document).ready(function () {
                 showError('fetch Unsuccessful', error);
             });
     }
+
+    $('#customerPage').eq(0).on('click', function () {
+        populateCustomerTable();
+    })
+
+    function openCustomerModal(heading, buttonText, buttonClass, custId) {
+        if (custId) {
+            customerApi.getCustomer(custId)
+                .then((customer) => {
+                    customerId.val(customer.customerId);
+                    customerName.val(customer.customerName);
+                    gender.val(customer.gender);
+                    level.val(customer.level);
+                    joinDate.val(customer.joinDate);
+                    totalPoints.val(customer.totalPoints);
+                    dob.val(customer.dob);
+                    address1.val(customer.address1);
+                    address2.val(customer.address2);
+                    address3.val(customer.address3);
+                    address4.val(customer.address4);
+                    postalCode.val(customer.postalCode);
+                    contact.val(customer.contactNo);
+                    email.val(customer.email);
+                    recentPurchaseDate.val(customer.recentPurchasedDate.split('.')[0]);
+                })
+                .catch((error) => {split('.')[0]
+                    console.log(error);
+                    showError('Save unsuccessful', error);
+                });
+        }
+        $('#customerFormHeading').text(heading);
+        saveBtn.text(buttonText);
+        $('#customerModal').modal('show');
+        saveBtn.removeClass('btn-success btn-warning').addClass(buttonClass);
+    }
+
+    $('#cust-table-body').eq(0).on('click','.updateBtn', function (){
+        const custId = $(this).data('customer-id');
+        openCustomerModal('Update Customer','Update','btn-warning',custId);
+    })
+
 });
