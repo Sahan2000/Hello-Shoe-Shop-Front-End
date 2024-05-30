@@ -9,7 +9,7 @@
     position: fixed;
     height: 100%;
     width: 240px;
-    background: #0A2558;
+    background: #892CDC;
     transition: all 0.5s ease;
 }
 .sidebar.active{
@@ -49,7 +49,7 @@
     transition: all 0.4s ease;
 }
 .sidebar .nav-links li a.active{
-    background: #081D45;
+    background: #892CDC;
 }
 .sidebar .nav-links li a:hover{
     background: #eee;
@@ -142,7 +142,7 @@ nav .search-box .bx-search{
     position: absolute;
     height: 40px;
     width: 40px;
-    background: #2697FF;
+    background: #892CDC;
     right: 5px;
     top: 50%;
     transform: translateY(-50%);
@@ -227,7 +227,7 @@ nav .profile-details i{
     background: #cce5ff;
     line-height: 50px;
     text-align: center;
-    color: #66b0ff;
+    color: #070F2B;
     border-radius: 12px;
     margin: -15px 0 0 6px;
 }

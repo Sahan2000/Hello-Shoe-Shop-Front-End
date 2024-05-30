@@ -51,8 +51,8 @@ a {
 
 .login-btn {
     border-radius: 20px;
-    border: 1px solid #2a2185;
-    background-color: #2a2185;
+    border: 1px solid #892CDC;
+    background-color: #892CDC;
     color: #FFFFFF;
     font-size: 12px;
     font-weight: bold;
@@ -165,9 +165,7 @@ button.ghost {
 }
 
 .overlay {
-    background: #2a2185;
-    background: #2a2185;
-    background: #2a2185;
+    background: #892CDC;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
@@ -252,6 +250,6 @@ footer i {
 }
 
 footer a {
-    color: #2a2185;
+    color: #892CDC;
     text-decoration: none;
 }

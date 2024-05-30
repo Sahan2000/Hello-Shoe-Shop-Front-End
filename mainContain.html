@@ -16,9 +16,9 @@
             <span class="logo_name">Hello Shoe Shop</span>
         </div>
         <ul class="nav-links">
-            <li><a href="#" class="active"><i class='bx bx-grid-alt'></i><span class="links_name">Dashboard</span></a></li>
-            <li><a href="#"><i class='bx bx-user'></i><span class="links_name">Customer</span></a></li>
-            <li><a href="#"><i class='bx bx-box'></i><span class="links_name">Product</span></a></li>
+            <li><a id="dashboardPage" href="#" class="active"><i id="dashboardIcon" class='bx bx-grid-alt'></i><span id="dashboardName" class="links_name">Dashboard</span></a></li>
+            <li><a id="customerPage" href="#"><i id="customerIcon" class='bx bx-user'></i><span id="customerName" class="links_name">Customer</span></a></li>
+            <li><a id="supplierPage" href="#"><i id="supplierIcon" class='bx bx-box'></i><span id="supplierName" class="links_name">Product</span></a></li>
             <li><a href="#"><i class='bx bx-list-ul'></i><span class="links_name">Order</span></a></li>
             <li><a href="#"><i class='bx bx-pie-chart-alt-2'></i><span class="links_name">Stock</span></a></li>
             <li><a href="#"><i class='bx bx-coin-stack'></i><span class="links_name">Supplier</span></a></li>
@@ -125,7 +125,7 @@
                                                 <div class="table-responsive table-scroll"
                                                      style="position: relative; height: 500px;">
                                                     <table class="table table-striped mb-0">
-                                                        <thead style="background-color: #002d72; text-align: center;">
+                                                        <thead style="background-color: #892CDC; text-align: center;">
                                                         <tr>
                                                             <th scope="col">ID</th>
                                                             <th scope="col">Name</th>
@@ -313,7 +313,7 @@
                                                 <div class="table-responsive table-scroll"
                                                      style="position: relative; height: 500px;">
                                                     <table class="table table-striped mb-0">
-                                                        <thead style="background-color: #002d72; text-align: center;">
+                                                        <thead style="background-color: #892CDC; text-align: center;">
                                                         <tr>
                                                             <th scope="col">ID</th>
                                                             <th scope="col">Name</th>
@@ -495,6 +495,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="assets/script/mainContain.js"></script>
+    <script src="assets/script/navigation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script type="module" src="controller/customerContrlloer.js"></script>
     
 </body>
 </html>
