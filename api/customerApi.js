@@ -1,51 +1,42 @@
-export class CustomerApi {
+export class CustomerApi{
 
-    async handleHttpRequest(url, method, data = null) {
-        try {
-            const response = await fetch(url, {
-                method: method,
-                headers: {
-                    "Content-Type": "application/json",
+    generateNextCustomerId(){
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                url: "http://localhost:8080/shop/api/v1/customer/nextCustId",
+                method: "GET",
+                contentType: 'application/json',
+                // headers: {
+                //     "Authorization": "Bearer " + localStorage.getItem("token")
+                // },
+                success: function (response) {
+                    resolve(response);
                 },
-                body: data ? JSON.stringify(data) : null,
-            });
-
-            if (response.ok) {
-                const contentType = response.headers.get("content-type");
-                if (contentType && contentType.includes("application/json")) {
-                    return await response.json();
-                } else {
-                    return await response.text();
+                error: function (xhr, status, error) {
+                    reject(new Error(`HTTP request failed: ${status} - ${error}`));
                 }
-            } else {
-                throw new Error(await response.text());
+            });
+        });
+    }
+
+    async saveCustomer(customer){
+        return new Promise((resolve, reject)=>{
+            let customerJson = JSON.stringify(customer);
+            console.log(customerJson.totalPoints);
+
+            const sendAjax = (customerJson)=>{
+                $.ajax({
+                    url: "http://localhost:8080/shop/api/v1/customer",
+                    type: "POST",
+                    data: customerJson,
+                    contentType: "application/json",
+                    success: function (responseText){
+                        resolve(responseText);
+                    }
+                });
             }
-        } catch (error) {
-            throw new Error(`Error during HTTP request: ${error.message}`);
-        }
-    }
-
-    async getAllCustomer() {
-        return this.handleHttpRequest("http://localhost:8080/helloShoeShop/api/v1/customer", "GET");
-    }
-
-    async deleteCustomer(custId) {
-        return this.handleHttpRequest(`http://localhost:8080/helloShoeShop/api/v1/customer/${custId}`, "DELETE");
-    }
-
-    async generateCustomerId() {
-        return this.handleHttpRequest("http://localhost:8080/helloShoeShop/api/v1/customer/nextCustId", "GET");
-    }
-
-    async updateCustomer(customer,customerId) {
-        return this.handleHttpRequest(`http://localhost:8080/helloShoeShop/api/v1/customer/${customerId}`, "PUT", customer);
-    }
-
-    async saveCustomer(customer) {
-        return this.handleHttpRequest("http://localhost:8080/helloShoeShop/api/v1/customer", "POST", customer);
-    }
-
-    async getCustomer(customerId) {
-        return this.handleHttpRequest(`http://localhost:8080/helloShoeShop/api/v1/customer/${customerId}`, "GET");
+            console.log('Save customer call');
+            sendAjax(customerJson);
+        })
     }
 }

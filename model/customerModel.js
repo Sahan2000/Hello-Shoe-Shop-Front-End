@@ -1,20 +1,20 @@
 export class CustomerModel{
-    constructor(customerId, customerName, gender, level, joinDate, totalPoints, dateOfBirth, addressLine1, addressLine2,
-    addressLine3, addressLine4, postalCode, contact, email, recentPurchaseDate){    
+    constructor(customerId, customerName, gender, level, joinDate, totalPoints, dob, address1, address2,
+    address3, address4, postalCode, contactNo, email, recentPurchasedDate){    
         this.customerId = customerId;
         this.customerName = customerName;
         this.gender = gender;
         this.level = level;
         this.joinDate = joinDate;
         this.totalPoints = totalPoints;
-        this.dateOfBirth = dateOfBirth;
-        this.addressLine1 = addressLine1;
-        this.addressLine2 = addressLine2;
-        this.addressLine3 = addressLine3;
-        this.addressLine4 = addressLine4;
+        this.dob = dob;
+        this.address1 = address1;
+        this.address2 = address2;
+        this.address3 = address3;
+        this.address4 = address4;
         this.postalCode = postalCode;
-        this.contact = contact;
+        this.contactNo = contactNo;
         this.email = email;
-        this.recentPurchaseDate = recentPurchaseDate;
+        this.recentPurchasedDate = recentPurchasedDate;
     }
 }
