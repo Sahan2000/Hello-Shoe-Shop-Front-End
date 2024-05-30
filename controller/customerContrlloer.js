@@ -145,9 +145,7 @@ $(document).ready(function () {
                                 data-customer-id="${customer.customerId}">Edit</button>
                         </td>
                         <td>
-                            <button class="deleteBtn btn btn-danger btn-sm" data-customer-id="${customer.customerId}">
-                                Delete
-                            </button>
+                            <button class="deleteBtn btn btn-danger btn-sm" data-customer-id="${customer.customerId}">Delete</button>
                         </td>
                     </tr>`
                     );
@@ -199,4 +197,37 @@ $(document).ready(function () {
         openCustomerModal('Update Customer','Update','btn-warning',custId);
     })
 
+    $('#cust-table-body').eq(0).on('click','.deleteBtn', function (){
+        const custId = $(this).data('customer-id');
+        deleteCustomer(custId);
+    });
+
+    function deleteCustomer(custId){
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Delete'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                customerApi.deleteCustomer(custId)
+                    .then((responseText) => {
+                        console.log("sahan");
+                        Swal.fire(
+                            responseText,
+                            'Successful',
+                            'success'
+                        );
+                        populateCustomerTable();
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        showError('Student delete Unsuccessful', error);
+                    });
+            }
+        });
+    }
 });

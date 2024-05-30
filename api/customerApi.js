@@ -97,4 +97,23 @@ export class CustomerApi{
             sendAjax(customerJson);
         });
     }
+
+    async deleteCustomer(custId){
+        return new Promise((resolve, reject)=>{
+            $.ajax({
+                url: `http://localhost:8080/shop/api/v1/customer/${custId}`,
+                method: "DELETE",
+                contentType: 'application/json',
+                // headers: {
+                //     "Authorization": "Bearer " + localStorage.getItem("token")
+                // },
+                success: function (response) {
+                    resolve(response);
+                },
+                error: function (xhr, status, error) {
+                    reject(new Error(`HTTP request failed: ${status} - ${error}`));
+                }
+            });
+        });
+    }
 }
