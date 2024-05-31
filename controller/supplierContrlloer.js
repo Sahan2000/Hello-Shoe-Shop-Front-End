@@ -205,4 +205,11 @@ $(document).ready(function(){
         });
     }
 
+    search.on("input", function () {
+        let value = $(this).val().toLowerCase();
+        $("#sup-table-body tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+        });
+    });
+
 });
