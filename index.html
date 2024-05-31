@@ -28,7 +28,11 @@
                     <input class="login-input" type="text" placeholder="Name" />
                     <input class="login-input" type="email" placeholder="Email" />
                     <input class="login-input" type="password" placeholder="Password" />
-                    <button class="login-btn">Sign Up</button>
+                    <div>
+                        <button id="signUpBtn" class="login-btn">Sign Up</button>
+                        <button id="addBranch" class="login-btn">Add Branch</button>
+                    </div>
+                    
                 </form>
             </div>
             <div class="login-form-container sign-in-container">
@@ -42,7 +46,6 @@
                     <span>or use your account</span>
                     <input class="login-input" id="email" type="email" placeholder="Email" />
                     <input class="login-input" id="password" type="password" placeholder="Password" />
-                    <a href="#">Forgot your password?</a>
                     <button id="signInBtn" class="login-btn" type="submit">Sign In</button>
                 </form>
             </div>
@@ -62,7 +65,38 @@
             </div>
         </div>
     </main>
+
+    <main id="branchPage">
+        <div class="login-container" id="branch-container">
+            <div class="login-form-container sign-in-container">
+                <form id="login-form" class="login-form" action="#">
+                    <h1>Create Branch</h1>
+                    <div class="social-container">
+                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <span>or use your account</span>
+                    <input class="login-input" id="name" type="text" placeholder="Branch name" />
+                    <input class="login-input" id="productCode" type="text" placeholder="Produc Activation Code" />
+                    <div>
+                        <button id="saveBranchBtn" class="login-btn" type="submit">Save Branch</button>
+                        <button id="backToLoginBtn" class="login-btn" type="submit">Back</button>
+                    </div>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-right">
+                        <h1>Branch setup!</h1>
+                        <p class="login-desc">Cultivating growth and connectivity from our roots!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
     <script src="lib/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="assets/script/index.js"></script>
     <script type="module" src="controller/userController.js"></script>
 </body>
