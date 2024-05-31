@@ -18,10 +18,10 @@
         <ul class="nav-links">
             <li><a id="dashboardPage" href="#" class="active"><i id="dashboardIcon" class='bx bx-grid-alt'></i><span id="dashboardName" class="links_name">Dashboard</span></a></li>
             <li><a id="customerPage" href="#"><i id="customerIcon" class='bx bx-user'></i><span id="customerName" class="links_name">Customer</span></a></li>
-            <li><a id="supplierPage" href="#"><i id="supplierIcon" class='bx bx-box'></i><span id="supplierName" class="links_name">Product</span></a></li>
+            <li><a href="#"><i class='bx bx-box'></i><span class="links_name">Product</span></a></li>
             <li><a href="#"><i class='bx bx-list-ul'></i><span class="links_name">Order</span></a></li>
             <li><a href="#"><i class='bx bx-pie-chart-alt-2'></i><span class="links_name">Stock</span></a></li>
-            <li><a href="#"><i class='bx bx-coin-stack'></i><span class="links_name">Supplier</span></a></li>
+            <li><a id="supplierPage" href="#"><i id="supplierIcon" class='bx bx-coin-stack'></i><span id="supplierName" class="links_name">Supplier</span></a></li>
             <li><a href="#"><i class='bx bx-book-alt'></i><span class="links_name">Employee</span></a></li>
             <li class="log_out"><a  href="index.html"><i class='bx bx-log-out'></i><span class="links_name">Log out</span></a></li>
         </ul>
@@ -297,7 +297,7 @@
                 </section>
             </div>
 
-            <div class="customer-content" id="supplier">
+            <div class="supplier-content" id="supplier">
                 <section class="intro">
                     <div class="bg-image h-100" style="background-color: #f5f7fa;">
                         <div class="mask d-flex align-items-center h-100">
@@ -313,21 +313,18 @@
                                                         <tr>
                                                             <th scope="col">ID</th>
                                                             <th scope="col">Name</th>
-                                                            <th scope="col">Gender</th>
-                                                            <th scope="col">Level</th>
-                                                            <th scope="col">Join Date</th>
-                                                            <th scope="col">Total Points</th>
-                                                            <th scope="col">Date of Birth</th>
+                                                            <th scope="col">Category</th>
                                                             <th scope="col">Address</th>
                                                             <th scope="col">Postal Code</th>
-                                                            <th scope="col">Contact</th>
+                                                            <th scope="col">Country</th>
+                                                            <th scope="col">Contact No 1</th>
+                                                            <th scope="col">Contact No 2</th>
                                                             <th scope="col">Email</th>
-                                                            <th scope="col">Recent Purchase</th>
                                                             <th scope="col">Update</th>
                                                             <th scope="col">Delete</th>
                                                         </tr>
                                                         </thead>
-                                                        <tbody id="cust-table-body">
+                                                        <tbody id="sup-table-body">
                                                         <!-- Dynamic data goes here -->
                                                         </tbody>
                                                     </table>
@@ -336,134 +333,111 @@
                                             </div>
     
                                             <button class="btn btn-success add-btn" style="width: 200px;"
-                                                    data-toggle="modal" data-target="#customerModal" id="custAddBtn">
-                                                Add New Customer
+                                                    data-toggle="modal" data-target="#supplierModal" id="supAddBtn">
+                                                Add New Supplier
                                             </button>
     
-                                            <div class="modal fade" id="customerModal" tabindex="-1" role="dialog"
-                                                 aria-labelledby="addCustomerModalLabel" aria-hidden="true">
+                                            <div class="modal fade" id="supplierModal" tabindex="-1" role="dialog"
+                                                 aria-labelledby="addSupplierModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-body">
-                                                            <form id="customerForm">
-                                                                <h4 id="customerFormHeading">Add New Customer</h4>
+                                                            <form id="supplierForm">
+                                                                <h4 id="supplierFormHeading">Add New Supplier</h4>
                                                                 <div class="form-row">
                                                                     <div class="form-group col-md-6">
-                                                                        <label for="customer-id">Customer ID</label>
+                                                                        <label for="sup-id">Supplier ID</label>
                                                                         <input type="text" class="form-control"
-                                                                               id="customer-id"
-                                                                               placeholder="Enter Customer ID" required
+                                                                               id="sup-id"
+                                                                               placeholder="Enter Supplier ID" required
                                                                                disabled>
                                                                     </div>
                                                                     <div class="form-group col-md-6">
-                                                                        <label for="customer-name">Full Name</label>
-                                                                        <input type="text" class="form-control" id="customer-name"
-                                                                               placeholder="Enter Full Name" required>
+                                                                        <label for="sup-name">Supplier Name</label>
+                                                                        <input type="text" class="form-control" id="sup-name"
+                                                                               placeholder="Enter Full Supplier Name" required>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-row">
                                                                     <div class="form-group col-md-6">
-                                                                        <label for="customer-gender">Gender</label>
-                                                                        <select class="form-control" id="customer-gender" required>
-                                                                            <option value="">Select Gender</option>
-                                                                            <option value="MALE">Male</option>
-                                                                            <option value="FEMALE">Female</option>
+                                                                        <label for="sup-category">Category</label>
+                                                                        <select class="form-control" id="sup-category" required>
+                                                                            <option value="">Select Category</option>
+                                                                            <option value="INTERNATIONAL">International</option>
+                                                                            <option value="LOCAL">Local</option>
                                                                         </select>
                                                                     </div>
                                                                     <div class="form-group col-md-6">
-                                                                        <label for="customer-level">Level</label>
-                                                                        <input type="text" class="form-control" id="customer-level"
-                                                                               placeholder="Enter Level"
-                                                                               disabled
-                                                                        >
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    <div class="form-group col-md-6">
-                                                                        <label for="customer-joinDate">Join Date</label>
-                                                                        <input type="date" class="form-control"
-                                                                               id="customer-joinDate" required
-                                                                               disabled
-                                                                        >
-                                                                    </div>
-                                                                    <div class="form-group col-md-6">
-                                                                        <label for="customer-totalPoint">Total Points</label>
-                                                                        <input type="number" class="form-control"
-                                                                               id="customer-totalPoint" min="0"
-                                                                               placeholder="Enter Total Points"
-                                                                               disabled
-                                                                        >
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-row">
-                                                                    <div class="form-group col-md-6">
-                                                                        <label for="customer-dob">Date of Birth</label>
-                                                                        <input type="date" class="form-control" id="customer-dob"
-                                                                               required>
-                                                                    </div>
-                                                                    <div class="form-group col-md-6">
-                                                                        <label for="customer-address1">Address Line 1</label>
+                                                                        <label for="sup-address1">Address Line 1</label>
                                                                         <input type="text" class="form-control"
-                                                                               id="customer-address1"
+                                                                               id="sup-address1"
                                                                                placeholder="Enter Address Line 1" required>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-row">
                                                                     <div class="form-group col-md-6">
-                                                                        <label for="customer-address2">Address Line 2</label>
+                                                                        <label for="sup-address2">Address Line 2</label>
                                                                         <input type="text" class="form-control"
-                                                                               id="customer-address2"
+                                                                               id="sup-address2"
                                                                                placeholder="Enter Address Line 2" required>
                                                                     </div>
                                                                     <div class="form-group col-md-6">
-                                                                        <label for="customer-address3">Address Line 3</label>
+                                                                        <label for="sup-address3">Address Line 3</label>
                                                                         <input type="text" class="form-control"
-                                                                               id="customer-address3"
+                                                                               id="sup-address3"
                                                                                placeholder="Enter Address Line 3" required>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-row">
                                                                     <div class="form-group col-md-6">
-                                                                        <label for="customer-address4">Address Line 4</label>
+                                                                        <label for="sup-address4">Address Line 4</label>
                                                                         <input type="text" class="form-control"
-                                                                               id="customer-address4"
+                                                                               id="sup-address4"
                                                                                placeholder="Enter Address Line 4" required>
                                                                     </div>
                                                                     <div class="form-group col-md-6">
-                                                                        <label for="customer-postalCode">Postal Code</label>
+                                                                        <label for="sup-postalCode">Postal Code</label>
                                                                         <input type="text" class="form-control"
-                                                                               id="customer-postalCode"
+                                                                               id="sup-postalCode"
                                                                                placeholder="Enter Postal Code"
                                                                                pattern="\d{5}" required>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-row">
                                                                     <div class="form-group col-md-6">
-                                                                        <label for="customer-contact">Contact</label>
-                                                                        <input type="tel" class="form-control" id="customer-contact"
-                                                                               placeholder="Enter Contact"
-                                                                               pattern="^\+?[0-9\-\\s]+$" required>
+                                                                        <label for="sup-country">Country</label>
+                                                                        <select class="form-control" id="sup-country" required>
+                                                                            <option value="">Select Country</option>
+                                                                        </select>
                                                                     </div>
                                                                     <div class="form-group col-md-6">
-                                                                        <label for="customer-email">Email</label>
-                                                                        <input type="email" class="form-control" id="customer-email"
-                                                                               placeholder="Enter Email" required>
+                                                                        <label for="sup-contact-1">Contact No 1</label>
+                                                                        <input type="tel" class="form-control" id="sup-contact-1"
+                                                                               placeholder="Enter Contact No 1"
+                                                                               pattern="^\+?[0-9\-\\s]+$" required>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-row">
                                                                     <div class="form-group col-md-6">
-                                                                        <label for="customer-recent-purchased-date">Recent Purchase Date</label>
-                                                                        <input type="date" class="form-control" id="customer-recent-purchased-date" required disabled>
+                                                                        <label for="sup-contact-2">Contact No 2</label>
+                                                                        <input type="tel" class="form-control" id="sup-contact-2"
+                                                                               placeholder="Enter Contact No 2"
+                                                                               pattern="^\+?[0-9\-\\s]+$" required>
+                                                                    </div>
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="sup-email">Email</label>
+                                                                        <input type="email" class="form-control" id="sup-email"
+                                                                               placeholder="Enter Email" required>
                                                                     </div>
                                                                 </div>
                                                                 <button type="submit" class="btn btn-success"
-                                                                        id="customer-save-update-btn">Save
-                                                                </button>
-                                                                <button type="button" class="btn btn-dark" id="custClear">
+                                                                        id="sup-save-update-btn">Save</button>
+                                                                        
+                                                                <button type="button" class="btn btn-dark" id="supClear">
                                                                     Clear
                                                                 </button>
                                                                 <button hidden type="reset" class="btn btn-dark"
-                                                                        id="custReset">Reset
+                                                                        id="supReset">Reset
                                                                 </button>
                                                             </form>
                                                         </div>
@@ -484,6 +458,7 @@
                     </div>
                 </section>
             </div>
+    
         </div>
     </section>
 
@@ -493,7 +468,9 @@
     <script src="assets/script/mainContain.js"></script>
     <script src="assets/script/navigation.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
     <script type="module" src="controller/customerContrlloer.js"></script>
+    <script type="module" src="controller/supplierContrlloer.js"></script>
     
 </body>
 </html>
