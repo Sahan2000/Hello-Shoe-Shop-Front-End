@@ -23,6 +23,8 @@ $(document).ready(function(){
 
     let saveupdateBtn = $('#sup-save-update-btn');
 
+    let search = $('#searchInput');
+
     let supplierApi = new SupplierApi();
 
     function generateNextSupplierId(){

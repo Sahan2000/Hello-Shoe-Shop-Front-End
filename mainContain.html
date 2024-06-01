@@ -18,7 +18,7 @@
         <ul class="nav-links">
             <li><a id="dashboardPage" href="#" class="active"><i id="dashboardIcon" class='bx bx-grid-alt'></i><span id="dashboardName" class="links_name">Dashboard</span></a></li>
             <li><a id="customerPage" href="#"><i id="customerIcon" class='bx bx-user'></i><span id="customerName" class="links_name">Customer</span></a></li>
-            <li><a href="#"><i class='bx bx-box'></i><span class="links_name">Product</span></a></li>
+            <li><a id="productsPage" href="#"><i id="productsIcon" class='bx bx-box'></i><span id="productsName" class="links_name">Product</span></a></li>
             <li><a href="#"><i class='bx bx-list-ul'></i><span class="links_name">Order</span></a></li>
             <li><a href="#"><i class='bx bx-pie-chart-alt-2'></i><span class="links_name">Stock</span></a></li>
             <li><a id="supplierPage" href="#"><i id="supplierIcon" class='bx bx-coin-stack'></i><span id="supplierName" class="links_name">Supplier</span></a></li>
@@ -456,9 +456,262 @@
                             </div>
                         </div>
                     </div>
+                </section></div>
+            <div class="products-content" id="products" >
+                <a href="#" id="addProducsListBtn" class="btn btn-success" style=" position: relative; left: 89%;">Add Producs list</a>
+                <div class="container mt-5">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card">
+                                <img src="https://img.freepik.com/premium-photo/black-fashion-sport-shoe-isolated-white-background_47469-1616.jpg?w=1380" class="card-img-top" alt="Local Shoe Brands">
+                                <div class="card-body">
+                                    <h5 class="card-title">Local Products</h5>
+                                    <p class="card-text">Discover the best local shoe brands that combine quality and style.</p>
+                                    <a href="#" class="btn btn-primary" style="background-color: #892CDC;">Products Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card">
+                                <img src="https://img.freepik.com/premium-photo/white-flying-sneakers-isolated-black-background_158023-2931.jpg?w=1380" class="card-img-top" alt="International Shoe Brands">
+                                <div class="card-body">
+                                    <h5 class="card-title">International Products</h5>
+                                    <p class="card-text">Explore top international shoe brands known for their exceptional craftsmanship.</p>
+                                    <a href="#" class="btn btn-primary" style="background-color: #892CDC;">Products Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-list-content" id="products-list">
+                <section class="intro">
+                    <div class="bg-image h-100" style="background-color: #f5f7fa;">
+                        <div class="mask d-flex align-items-center h-100">
+                            <div class="container-fluid mt-5">
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <div class="card">
+                                            <div class="card-body p-0">
+                                                <h5 class="card-title text-center mt-3">Gender Details</h5>
+                                                <div class="table-responsive table-scroll" style="height: 300px;">
+                                                    <table class="table table-striped mb-0">
+                                                        <thead style="background-color: #892CDC; text-align: center;">
+                                                        <tr>
+                                                            <th scope="col">Gender Code</th>
+                                                            <th scope="col">Gender Description</th>
+                                                            <th scope="col">Update</th>
+                                                            <th scope="col">Delete</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody id="gender-table-body">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-success add-btn mt-3 mx-auto" style="width: 200px;" data-toggle="modal" data-target="#genderModal" id="genderAddBtn">
+                                                Add New Gender
+                                            </button>
+                                        </div>
+                                    </div>
+    
+                                    <!-- Occasion Card -->
+                                    <div class="col-md-6 mb-4">
+                                        <div class="card">
+                                            <div class="card-body p-0">
+                                                <h5 class="card-title text-center mt-3">Occasion Details</h5>
+                                                <div class="table-responsive table-scroll" style="height: 300px;">
+                                                    <table class="table table-striped mb-0">
+                                                        <thead style="background-color: #892CDC; text-align: center;">
+                                                        <tr>
+                                                            <th scope="col">Occasion Code</th>
+                                                            <th scope="col">Occasion Description</th>
+                                                            <th scope="col">Update</th>
+                                                            <th scope="col">Delete</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody id="occasion-table-body">
+                                                        <!-- Dynamic data goes here -->
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-success add-btn mt-3 mx-auto" style="width: 200px;" data-toggle="modal" data-target="#occasionModal" id="occasionAddBtn">
+                                                Add New Occasion
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!-- Variety Card -->
+                                    <div class="col-md-6 mb-4">
+                                        <div class="card">
+                                            <div class="card-body p-0">
+                                                <h5 class="card-title text-center mt-3">Variety Details</h5>
+                                                <div class="table-responsive table-scroll" style="height: 300px;">
+                                                    <table class="table table-striped mb-0">
+                                                        <thead style="background-color: #892CDC; text-align: center;">
+                                                        <tr>
+                                                            <th scope="col">Variety Code</th>
+                                                            <th scope="col">Variety Description</th>
+                                                            <th scope="col">Update</th>
+                                                            <th scope="col">Delete</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody id="variety-table-body">
+                                                        <!-- Dynamic data goes here -->
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-success add-btn mt-3 mx-auto" style="width: 200px;" data-toggle="modal" data-target="#varietyModal" id="varietyAddBtn">
+                                                Add New Variety
+                                            </button>
+                                        </div>
+                                    </div>
+    
+                                    <!-- Size Card -->
+                                    <div class="col-md-6 mb-4">
+                                        <div class="card">
+                                            <div class="card-body p-0">
+                                                <h5 class="card-title text-center mt-3">Size Details</h5>
+                                                <div class="table-responsive table-scroll" style="height: 300px;">
+                                                    <table class="table table-striped mb-0">
+                                                        <thead style="background-color: #892CDC; text-align: center;">
+                                                        <tr>
+                                                            <th scope="col">Size Code</th>
+                                                            <th scope="col">Size Description</th>
+                                                            <th scope="col">Update</th>
+                                                            <th scope="col">Delete</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody id="size-table-body">
+                                                        <!-- Dynamic data goes here -->
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-success add-btn mt-3 mx-auto" style="width: 200px;" data-toggle="modal" data-target="#sizeModal" id="sizeAddBtn">
+                                                Add New Size
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <!-- Modals for each card (example for Gender, repeat for others) -->
+                            <div class="modal fade" id="genderModal" tabindex="-1" role="dialog" aria-labelledby="genderModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <form id="genderForm">
+                                                <h4 id="genderFormHeading">Add New Gender</h4>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="gender-id">Gender ID</label>
+                                                        <input type="text" class="form-control" id="gender-id" placeholder="Enter Gender ID" required>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="gender-desc">Gender Description</label>
+                                                        <input type="text" class="form-control" id="gender-desc" placeholder="Enter Gender Description" required>
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="btn btn-success" id="gender-save-update-btn">Save</button>
+                                                <button type="button" class="btn btn-dark" id="genderClear">Clear</button>
+                                                <button hidden type="reset" class="btn btn-dark" id="genderReset">Reset</button>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="occasionModal" tabindex="-1" role="dialog" aria-labelledby="occasionModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <form id="occasionForm">
+                                                <h4 id="occasionFormHeading">Add New Occasion</h4>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="occasion-id">Occasion ID</label>
+                                                        <input type="text" class="form-control" id="occasion-id" placeholder="Enter Occasion ID" required>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="occasion-name">Occasion Description</label>
+                                                        <input type="text" class="form-control" id="occasion-name" placeholder="Enter Occasion Description" required>
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="btn btn-success" id="occasion-save-update-btn">Save</button>
+                                                <button type="button" class="btn btn-dark" id="occasionClear">Clear</button>
+                                                <button hidden type="reset" class="btn btn-dark" id="occasionReset">Reset</button>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="varietyModal" tabindex="-1" role="dialog" aria-labelledby="varietyModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <form id="varietyForm">
+                                                <h4 id="varietyFormHeading">Add New Variety</h4>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="variety-id">Variety ID</label>
+                                                        <input type="text" class="form-control" id="variety-id" placeholder="Enter Gender ID" required>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="variety-name">Variety Description</label>
+                                                        <input type="text" class="form-control" id="variety-name" placeholder="Enter Gender Description" required>
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="btn btn-success" id="variety-save-update-btn">Save</button>
+                                                <button type="button" class="btn btn-dark" id="varietyClear">Clear</button>
+                                                <button hidden type="reset" class="btn btn-dark" id="varietyReset">Reset</button>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="sizeModal" tabindex="-1" role="dialog" aria-labelledby="sizeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <form id="sizeForm">
+                                                <h4 id="sizeFormHeading">Add New Size</h4>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="size-id">Size ID</label>
+                                                        <input type="text" class="form-control" id="size-id" placeholder="Enter Size ID" required disabled>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="size-desc">Size Description</label>
+                                                        <input type="text" class="form-control" id="size-desc" placeholder="Enter Size Description" required>
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="btn btn-success" id="size-save-update-btn">Save</button>
+                                                <button type="button" class="btn btn-dark" id="sizeClear">Clear</button>
+                                                <button hidden type="reset" class="btn btn-dark" id="sizeReset">Reset</button>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </div>
-    
         </div>
     </section>
 
@@ -471,6 +724,7 @@
 
     <script type="module" src="controller/customerContrlloer.js"></script>
     <script type="module" src="controller/supplierContrlloer.js"></script>
+    <script type="module" src="controller/productsListController.js"></script>
     
 </body>
 </html>
