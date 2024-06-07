@@ -21,6 +21,8 @@ $(document).ready(function(){
     let branchApi = new BranchApi();
     let userApi = new UserApi();
 
+    let globleVarible = null;
+
     loginBtn.eq(0).on('click', function(){
         event.preventDefault();
         let emailValue = email.val();
@@ -33,7 +35,8 @@ $(document).ready(function(){
                 contentType: 'application/json',
                 data: JSON.stringify({ email: emailValue, password: passwordValue}),
                 success: function(token) {
-                    localStorage.setItem('token', token);
+                    document.cookie = "username=" + emailValue + "; path=/";
+                    document.cookie = "token=" + token + "; path=/";
                     window.location.href = 'mainContain.html';
                 },
                 error: function() {
@@ -93,7 +96,7 @@ $(document).ready(function(){
             emailValue,
             passwordValue,
             roleValue,
-            bra
+            branch
         );
         
         userApi.saveUser(user).then(response => {

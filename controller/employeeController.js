@@ -63,7 +63,7 @@ $(document).ready(function () {
 
     empClear.on('click', function () {
         employeeForm[0].reset();
-        updateImagePreview('img/previewImg.jpg');
+        updateImagePreview('assets/img/previewImg.jpg');
     });
 
     function updateEmployee(employeeModel) {

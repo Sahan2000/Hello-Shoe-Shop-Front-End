@@ -20,7 +20,7 @@
             <li><a id="customerPage" href="#"><i id="customerIcon" class='bx bx-user'></i><span id="customerName" class="links_name">Customer</span></a></li>
             <li><a id="productsPage" href="#"><i id="productsIcon" class='bx bx-box'></i><span id="productsName" class="links_name">Product</span></a></li>
             <li><a href="#"><i class='bx bx-list-ul'></i><span class="links_name">Order</span></a></li>
-            <li><a href="#"><i class='bx bx-pie-chart-alt-2'></i><span class="links_name">Stock</span></a></li>
+            <li><a id="stockPage" href="#"><i id="stockIcon" class='bx bx-pie-chart-alt-2'></i><span id="stockName" class="links_name">Stock</span></a></li>
             <li><a id="supplierPage" href="#"><i id="supplierIcon" class='bx bx-coin-stack'></i><span id="supplierName" class="links_name">Supplier</span></a></li>
             <li><a id="employeePage" href="#"><i id="employeeIcon" class='bx bx-book-alt'></i><span id="employeeName" class="links_name">Employee</span></a></li>
             <li class="log_out"><a  href="index.html"><i class='bx bx-log-out'></i><span class="links_name">Log out</span></a></li>
@@ -979,6 +979,179 @@
                 </div>
             </section>
         </div>
+
+        <div class="stock-content" id="stock">
+            <section class="intro">
+                <div class="bg-image h-100" style="background-color: #f5f7fa;">
+                    <div class="mask d-flex align-items-center h-100">
+                        <div class="container-fluid">
+                            <div class="row justify-content-center">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body p-0">
+                                            <div class="table-responsive table-scroll" style="position: relative; height: 500px;">
+                                                <table class="table table-striped mb-0">
+                                                    <thead style="background-color: #892CDC; text-align: center;">
+                                                    <tr>
+                                                        <th scope="col">Stock ID</th>
+                                                        <th scope="col">Supply Date</th>
+                                                        <th scope="col">Supplier ID</th>
+                                                        <th scope="col">Supplier Name</th>
+                                                        <th scope="col">Item ID</th>
+                                                        <th scope="col">Item Name</th>
+                                                        <th scope="col">Size ID</th>
+                                                        <th scope="col">Size Name</th>
+                                                        <th scope="col">Quantity</th>
+                                                        <th scope="col">Unit Buying Price</th>
+                                                        <th scope="col">Unit Selling Price</th>
+                                                        <th scope="col">Profit</th>
+                                                        <th scope="col">Profit Margin</th>
+                                                        <th scope="col">Update</th>
+                                                        <th scope="col">Delete</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody id="stock-table-body">
+                                                    <!-- Dynamic data goes here -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <button class="btn btn-success add-btn" style="width: 200px;"
+                                                    data-toggle="modal" data-target="#stockModal" id="stockAddBtn">
+                                                Add New Stock
+                                            </button>
+
+                                            <div class="modal fade" id="stockModal" tabindex="-1" role="dialog"
+                                                 aria-labelledby="addCustomerModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-body">
+                                                            <form id="stockForm">
+                                                                <h4 id="stockFormHeading">Add New Stock</h4>
+                                                                <div class="form-row">
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="stock-id">Stock ID</label>
+                                                                        <input type="text" class="form-control"
+                                                                               id="stock-id" placeholder="Enter Stock ID" required
+                                                                               disabled>
+                                                                    </div>
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="supply-date">Supply Date</label>
+                                                                        <input type="date" class="form-control"
+                                                                               id="supply-date" required
+                                                                               disabled>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="supply-Id">Supplier Id</label>
+                                                                        <select class="form-control" id="supply-Id"
+                                                                                required>
+                                                                            <!-- Populate options dynamically using JavaScript -->
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="supplier-name">Supplier Name</label>
+                                                                        <input type="text" class="form-control"
+                                                                               id="supplier-name"
+                                                                               placeholder="Enter Supplier Name" required
+                                                                               disabled>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="item-Id">Item Id</label>
+                                                                        <select class="form-control" id="item-Id"
+                                                                                required>
+                                                                            <!-- Populate options dynamically using JavaScript -->
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="item-details">Item Details</label>
+                                                                        <input type="text" class="form-control"
+                                                                               id="item-details"
+                                                                               placeholder="Item Details" required disabled>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="size-Id-Cb">Size Id</label>
+                                                                        <select class="form-control" id="size-Id-Cb"
+                                                                                required>
+                                                                            <!-- Populate options dynamically using JavaScript -->
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="size-details">Size Details</label>
+                                                                        <input type="text" class="form-control"
+                                                                               id="size-details"
+                                                                               placeholder="Size Details" required disabled>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="qty">Quantity</label>
+                                                                        <input type="number" class="form-control" id="qty"
+                                                                               placeholder="Enter Quantity" required>
+                                                                    </div>
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="unitBuyingPrice">Unit Buying Price</label>
+                                                                        <input type="number" class="form-control"
+                                                                               id="unitBuyingPrice"
+                                                                               placeholder="Enter Unit Buying Price" required>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="unitSellingPrice">Unit Selling Price</label>
+                                                                        <input type="number" class="form-control"
+                                                                               id="unitSellingPrice"
+                                                                               placeholder="Enter Unit Selling Price" required>
+                                                                    </div>
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="profit">Profit</label>
+                                                                        <input type="text" class="form-control" id="profit"
+                                                                               placeholder="Enter Profit" required disabled>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="profitMargin">Profit Margin</label>
+                                                                        <input type="number" class="form-control"
+                                                                               id="profitMargin" placeholder="Enter Profit Margin"
+                                                                               required disabled>
+                                                                    </div>
+                                                                </div>
+
+                                                                <button type="submit" class="btn btn-success"
+                                                                        id="stock-save-update-btn">Save
+                                                                </button>
+                                                                <button type="button" class="btn btn-dark" id="stockClear">
+                                                                    Clear
+                                                                </button>
+                                                                <button hidden type="reset" class="btn btn-dark"
+                                                                        id="stockReset">Reset
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Close
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </section>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -993,6 +1166,7 @@
     <script type="module" src="controller/productsListController.js"></script>
     <script type="module" src="controller/productsController.js"></script>
     <script type="module" src="controller/employeeController.js"></script>
+    <script type="module" src="controller/stockController.js"></script>
     
 </body>
 </html>
