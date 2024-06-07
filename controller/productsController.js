@@ -1,8 +1,9 @@
-import {GenderApi} from "../api/genderApi.js";
+import {ProductsApi} from "../api/productApi.js";
 import {ProductModel} from "../model/productModel.js";
-import { ProductsApi } from "../api/productApi.js";
-import { OccasionApi } from "../api/occasionApi.js";
-import { VarietyApi } from "../api/varietyApi.js";
+import {VarietyApi} from "../api/varietyApi.js";
+import {SizeApi} from "../api/sizeApi.js";
+import {GenderApi} from "../api/genderApi.js";
+import {OccasionApi} from "../api/occasionApi.js";
 
 $(document).ready(function () {
 
@@ -24,9 +25,10 @@ $(document).ready(function () {
     let updateBtn = $('#update-icon');
 
     let productApi = new ProductsApi();
-    let genderApi = new GenderApi();
-    let occasionApi = new OccasionApi();
-    let varietyApi = new VarietyApi();
+    let variety = new VarietyApi();
+    let size = new SizeApi();
+    let gender = new GenderApi();
+    let occasion = new OccasionApi();
 
     let file = null;
 
@@ -60,7 +62,7 @@ $(document).ready(function () {
     }
 
     function populateGenderComboBox() {
-        genderApi.getAllGender()
+        gender.getAllGender()
             .then(response => {
                 populateComboBox('item-gender', response, 'genderCode', 'genderDesc', 'Select Gender');
             })
@@ -71,7 +73,7 @@ $(document).ready(function () {
     }
 
     function populateOccasionComboBox() {
-        occasionApi.getAllOccasions()
+        occasion.getAllOccasions()
             .then(response => {
                 populateComboBox('item-occasion', response, 'occasionCode', 'occasionDesc', 'Select Occasion');
             })
@@ -82,7 +84,7 @@ $(document).ready(function () {
     }
 
     function populateVarietyComboBox() {
-        varietyApi.getAllVarieties()
+        variety.getAllVarieties()
             .then(response => {
                 populateComboBox('item-variety', response, 'varietyCode', 'varietyDesc', 'Select Variety');
             })
@@ -174,7 +176,7 @@ $(document).ready(function () {
                 .then(response => {
                     Swal.fire('Saved!', response, 'success');
                     itemClear.click();
-                    // fetchAllProducts(); // Uncomment if needed
+                    fetchAllProducts(); // Uncomment if needed
                 })
                 .catch(error => {
                     showError('Save Unsuccessful', error);
@@ -316,6 +318,7 @@ $(document).ready(function () {
                             'Successful',
                             'success'
                         )
+                        fetchAllProducts();
                     })
                     .catch((error) => {
                         console.log(error);

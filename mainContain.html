@@ -22,7 +22,7 @@
             <li><a href="#"><i class='bx bx-list-ul'></i><span class="links_name">Order</span></a></li>
             <li><a href="#"><i class='bx bx-pie-chart-alt-2'></i><span class="links_name">Stock</span></a></li>
             <li><a id="supplierPage" href="#"><i id="supplierIcon" class='bx bx-coin-stack'></i><span id="supplierName" class="links_name">Supplier</span></a></li>
-            <li><a href="#"><i class='bx bx-book-alt'></i><span class="links_name">Employee</span></a></li>
+            <li><a id="employeePage" href="#"><i id="employeeIcon" class='bx bx-book-alt'></i><span id="employeeName" class="links_name">Employee</span></a></li>
             <li class="log_out"><a  href="index.html"><i class='bx bx-log-out'></i><span class="links_name">Log out</span></a></li>
         </ul>
     </div>
@@ -790,6 +790,195 @@
                 </div>
             </section>
         </div>
+
+        <div class="employee-content" id="employee">
+            <section class="intro">
+                <div class="bg-image h-100">
+                    <div class="mask d-flex align-items-center h-100">
+                        <div class="container-fluid">
+                            <div class="row justify-content-center">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body p-0">
+                                            <div id="tblEmployeeRes" class="table-responsive table-scroll" style="position: relative; height: 500px;">
+                                                <table id="employeeTable" class="table table-striped mb-0">
+                                                    <thead style="background-color: #892CDC; text-align: center;">
+                                                    <tr>
+                                                        <th scope="col">Employee Code</th>
+                                                        <th scope="col">Employee Name</th>
+                                                        <th scope="col">Profile Picture</th>
+                                                        <th scope="col">Gender</th>
+                                                        <th scope="col">Status</th>
+                                                        <th scope="col">Designation</th>
+                                                        <th scope="col">Access Role</th>
+                                                        <th scope="col">Date of Birth</th>
+                                                        <th scope="col">Join Date</th>
+                                                        <th scope="col">Attached Branch</th>
+                                                        <th scope="col">Address</th>
+                                                        <th scope="col">Postal Code</th>
+                                                        <th scope="col">Contact</th>
+                                                        <th scope="col">Email</th>
+                                                        <th scope="col">Emergency Contact Person</th>
+                                                        <th scope="col">Emergency Contact</th>
+                                                        <th scope="col">Update</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody id="emp-table-body">
+                                                    <!-- Dynamic data goes here -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="modal fade" id="employeeModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-body">
+                                                        <form id="employeeForm">
+                                                            <h4 id="employeeFormHeading">Update Employee</h4>
+                                                            <div class="form-row">
+                                                                <div class="form-group col-12 text-center">
+                                                                    <img id="emp-image-preview"
+                                                                         src="assets/img/previewImg.jpg"
+                                                                         alt="Item Image" class="img-fluid mb-3"
+                                                                         style="max-height: 200px;">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="employeeCode">Employee Code</label>
+                                                                    <input type="text" class="form-control" id="employeeCode" placeholder="Enter Employee Code" required disabled>
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="employeeName">Employee Name</label>
+                                                                    <input type="text" class="form-control" id="employeeName1" placeholder="Enter Employee Name" >
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="item-pic">Picture URL</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="emp-pic" placeholder="Enter Picture URL" required>
+                                                                        <div class="input-group-append">
+                                                                            <button class="btn btn-sky-blue" type="button" id="emp-browse-btn">
+                                                                                <i class='bx bx-folder-open' style="color: white;"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                    <input type="file" id="emp-file-input" style="display: none;">
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="emp-gender">Gender</label>
+                                                                    <select class="form-control" id="emp-gender" required>
+                                                                        <option value="">Select Gender</option>
+                                                                        <option value="MALE">Male</option>
+                                                                        <option value="FEMALE">Female</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="status">Status</label>
+                                                                    <select class="form-control" id="status" required>
+                                                                        <option value="">Select Status</option>
+                                                                        <option value="LOW">Low</option>
+                                                                        <option value="AVAILABLE">Available</option>
+                                                                        <option value="NOTAVAILABLE">Not Available</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="designation">Designation</label>
+                                                                    <input type="text" class="form-control" id="designation" placeholder="Enter Designation">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="accessRole">Access Role</label>
+                                                                    <select class="form-control" id="accessRole" required disabled>
+                                                                        <option value="">Select Access Role</option>
+                                                                        <option value="ADMIN">Admin</option>
+                                                                        <option value="USER">User</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="emp-dob">Date of Birth</label>
+                                                                    <input type="date" class="form-control" id="emp-Dob" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="emp-JoinDate">Join Date</label>
+                                                                    <input type="date" class="form-control" id="emp-JoinDate" required disabled>
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="attachedBranch">Attached Branch</label>
+                                                                    <input type="text" class="form-control" id="attachedBranch" placeholder="Enter Attached Branch" required disabled>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="empAddress1">Address Line 1</label>
+                                                                    <input type="text" class="form-control" id="empAddress1" placeholder="Enter Address Line 1" required>
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="empAddress2">Address Line 2</label>
+                                                                    <input type="text" class="form-control" id="empAddress2" placeholder="Enter Address Line 2" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="empAddress4">Address Line 3</label>
+                                                                    <input type="text" class="form-control" id="empAddress3" placeholder="Enter Address Line 3" required>
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="empAddress4">Address Line 4</label>
+                                                                    <input type="text" class="form-control" id="empAddress4" placeholder="Enter Address Line 4" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="empPostalCode">Postal Code</label>
+                                                                    <input type="text" class="form-control" id="empPostalCode" placeholder="Enter Postal Code" pattern="\d{5}" required>
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="empContact">Contact</label>
+                                                                    <input type="tel" class="form-control" id="empContact" placeholder="Enter Contact" pattern="^\+?[0-9\-\\s]+$" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="empEmail">Email</label>
+                                                                    <input type="email" class="form-control" id="empEmail" placeholder="Enter Email" required disabled>
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="emergencyContactPerson">Emergency Contact Person</label>
+                                                                    <input type="text" class="form-control" id="emergencyContactPerson" placeholder="Enter Emergency Contact Person" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="emergencyContact">Emergency Contact</label>
+                                                                    <input type="tel" class="form-control" id="emergencyContact" placeholder="Enter Emergency Contact" pattern="^\+?[0-9\-\\s]+$" required>
+                                                                </div>
+                                                            </div>
+                                                            <button type="submit" class="btn btn-warning" id="empUpdateBtn">Update</button>
+                                                            <button type="button" class="btn btn-dark" id="empClear">Clear</button>
+                                                            <button hidden type="reset" class="btn btn-dark" id="empReset">Reset</button>
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </section>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -803,6 +992,7 @@
     <script type="module" src="controller/supplierContrlloer.js"></script>
     <script type="module" src="controller/productsListController.js"></script>
     <script type="module" src="controller/productsController.js"></script>
+    <script type="module" src="controller/employeeController.js"></script>
     
 </body>
 </html>

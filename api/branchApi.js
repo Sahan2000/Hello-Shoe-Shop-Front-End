@@ -18,4 +18,23 @@ export class BranchApi{
             });
         });
     }
+
+    async getAllBranch(){
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                url: "http://localhost:8080/shop/api/v1/auth",
+                method: "GET",
+                contentType: 'application/json',
+                // headers: {
+                //     "Authorization": "Bearer " + localStorage.getItem("token")
+                // },
+                success: function (response) {
+                    resolve(response);
+                },
+                error: function (error) {
+                    reject(error);
+                }
+            });
+        })
+    }
 }

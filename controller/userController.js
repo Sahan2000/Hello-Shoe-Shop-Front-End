@@ -44,6 +44,22 @@ $(document).ready(function(){
 
     });
 
+    function populateBranchComboBox() {
+        branchApi.getAllBranch()
+            .then((responseText) => {
+                console.log(responseText);
+                responseText.forEach((branch) => {
+                    $('#signup-branch').append(
+                        `<option value="${branch.branchId}">${branch.branchName}</option>`
+                    );
+                });
+            })
+            .catch((error) => {
+                console.log(error);
+                showError('fetch Unsuccessful', error);
+            });
+    }
+
     saveBranchBtn.eq(0).on('click', function(){
         event.preventDefault();
         let name = $('#name').val();
@@ -64,16 +80,20 @@ $(document).ready(function(){
 
     });
 
+    populateBranchComboBox();
+
     signUpBtn.eq(0).on('click', function(){
         event.preventDefault();
         let emailValue = signUpEmail.val();
         let passwordValue = signUpPassword.val();
         let roleValue = signUpRoles.val();
+        let branch = $('#signup-branch').val();
 
         let user = new UserModel(
             emailValue,
             passwordValue,
             roleValue,
+            bra
         );
         
         userApi.saveUser(user).then(response => {
