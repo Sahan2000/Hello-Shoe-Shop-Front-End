@@ -29,6 +29,8 @@ $(document).ready(function () {
 
     let customerApi = new CustomerApi();
 
+    let token = getCookie("token");
+
     addCustomer.eq(0).on('click', function () {
         generateCustomerId();
         level.val("NEW");
@@ -54,6 +56,12 @@ $(document).ready(function () {
             text: text,
             footer: '<a href="">Why do I have this issue?</a>'
         });
+    }
+
+    function getCookie(name) {
+        var value = "; " + document.cookie;
+        var parts = value.split("; " + name + "=");
+        if (parts.length === 2) return parts.pop().split(";").shift();
     }
 
     saveBtn.eq(0).on('click', function () {
@@ -94,9 +102,9 @@ $(document).ready(function () {
             );
 
             console.log(customer);
-
+        
         if (saveBtn.text() === 'Save') {
-            customerApi.saveCustomer(customer).then((responseText) => {
+            customerApi.saveCustomer(customer,token).then((responseText) => {
                 Swal.fire(
                     responseText,
                     'Successful',
@@ -108,7 +116,7 @@ $(document).ready(function () {
                 showError('Save Unsuccessful', error);
             });
         }else{
-            customerApi.updateCustomer(customer).then((responseText) => {
+            customerApi.updateCustomer(customer,token).then((responseText) => {
                 Swal.fire(
                     responseText,
                     'Successful',
@@ -123,7 +131,7 @@ $(document).ready(function () {
     });
 
     function populateCustomerTable() {
-        customerApi.getAllCustomer()
+        customerApi.getAllCustomer(token)
             .then((responseText) => {
                 let customer_db = responseText;
                 tableBody.empty();
@@ -165,7 +173,7 @@ $(document).ready(function () {
 
     function openCustomerModal(heading, buttonText, buttonClass, custId) {
         if (custId) {
-            customerApi.getCustomer(custId)
+            customerApi.getCustomer(custId,token)
                 .then((customer) => {
                     customerId.val(customer.customerId);
                     customerName.val(customer.customerName);
@@ -201,10 +209,10 @@ $(document).ready(function () {
 
     $('#cust-table-body').eq(0).on('click','.deleteBtn', function (){
         const custId = $(this).data('customer-id');
-        deleteCustomer(custId);
+        deleteCustomer(custId,token);
     });
 
-    function deleteCustomer(custId){
+    function deleteCustomer(custId,token){
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -215,7 +223,7 @@ $(document).ready(function () {
             confirmButtonText: 'Delete'
         }).then((result) => {
             if (result.isConfirmed) {
-                customerApi.deleteCustomer(custId)
+                customerApi.deleteCustomer(custId,token)
                     .then((responseText) => {
                         console.log("sahan");
                         Swal.fire(

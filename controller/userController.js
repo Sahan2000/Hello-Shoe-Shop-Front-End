@@ -21,7 +21,15 @@ $(document).ready(function(){
     let branchApi = new BranchApi();
     let userApi = new UserApi();
 
-    let globleVarible = null;
+    let globleVarible = getCookie("token");
+
+    function getCookie(name) {
+        var value = "; " + document.cookie;
+        var parts = value.split("; " + name + "=");
+        if (parts.length === 2) return parts.pop().split(";").shift();
+    }
+
+    console.log("Hellllo " +globleVarible);
 
     loginBtn.eq(0).on('click', function(){
         event.preventDefault();

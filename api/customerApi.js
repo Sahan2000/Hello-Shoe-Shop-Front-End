@@ -1,13 +1,13 @@
 export class CustomerApi{
 
-    generateNextCustomerId(){
+    generateNextCustomerId(token){
         return new Promise((resolve, reject) => {
             $.ajax({
                 url: "http://localhost:8080/shop/api/v1/customer/nextCustId",
                 method: "GET",
                 contentType: 'application/json',
                 // headers: {
-                //     "Authorization": "Bearer " + localStorage.getItem("token")
+                //     'Authorization': `Bearer ${token}`
                 // },
                 success: function (response) {
                     resolve(response);
@@ -19,7 +19,7 @@ export class CustomerApi{
         });
     }
 
-    async saveCustomer(customer){
+    async saveCustomer(customer, token){
         return new Promise((resolve, reject)=>{
             let customerJson = JSON.stringify(customer);
 
@@ -29,6 +29,9 @@ export class CustomerApi{
                     type: "POST",
                     data: customerJson,
                     contentType: "application/json",
+                    // headers: {
+                    //     'Authorization': `Bearer ${token}`
+                    // },
                     success: function (responseText){
                         resolve(responseText);
                     }
@@ -39,14 +42,14 @@ export class CustomerApi{
         });
     }
 
-    async getAllCustomer(){
+    async getAllCustomer(token){
         return new Promise((resolve, reject)=>{
             $.ajax({
                 url: "http://localhost:8080/shop/api/v1/customer",
                 method: "GET",
                 contentType: 'application/json',
                 // headers: {
-                //     "Authorization": "Bearer " + localStorage.getItem("token")
+                //     'Authorization': `Bearer ${token}`
                 // },
                 success: function (response) {
                     resolve(response);
@@ -58,14 +61,14 @@ export class CustomerApi{
         });
     }
 
-    async getCustomer(custId){
+    async getCustomer(custId,token){
         return new Promise((resolve, reject)=>{
             $.ajax({
                 url: `http://localhost:8080/shop/api/v1/customer/${custId}`,
                 method: "GET",
                 contentType: 'application/json',
                 // headers: {
-                //     "Authorization": "Bearer " + localStorage.getItem("token")
+                //     'Authorization': `Bearer ${token}`
                 // },
                 success: function (response) {
                     resolve(response);
@@ -77,7 +80,7 @@ export class CustomerApi{
         });
     }
 
-    async updateCustomer(customer){
+    async updateCustomer(customer,token){
         return new Promise((resolve, reject)=>{
             let customerJson = JSON.stringify(customer);
 
@@ -87,6 +90,9 @@ export class CustomerApi{
                     type: "PUT",
                     data: customerJson,
                     contentType: "application/json",
+                    // headers: {
+                    //     'Authorization': `Bearer ${token}`
+                    // },
                     success: function (responseText){
                         resolve(responseText);
                     }
@@ -96,14 +102,14 @@ export class CustomerApi{
         })
     }
 
-    async deleteCustomer(custId){
+    async deleteCustomer(custId,token){
         return new Promise((resolve, reject)=>{
             $.ajax({
                 url: `http://localhost:8080/shop/api/v1/customer/${custId}`,
                 method: "DELETE",
                 contentType: 'application/json',
                 // headers: {
-                //     "Authorization": "Bearer " + localStorage.getItem("token")
+                //     'Authorization': `Bearer ${token}`
                 // },
                 success: function (response) {
                     resolve(response);
